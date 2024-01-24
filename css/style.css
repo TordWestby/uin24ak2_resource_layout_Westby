@@ -1,0 +1,74 @@
+:root {
+    --font: "Roboto", sans-serif;
+
+    /*---Colors---*/
+    --header-blue: #2A324B;
+    --lighter-blue-ish: #58699D;
+    --background-color: #E1E5EE;
+    --white: #fff;
+}
+
+
+body {
+    padding: 0;
+    margin: 0;
+
+    font-family: var(--font); 
+    background-color: var(--background-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    
+}
+
+.container {
+    margin: 10rem;
+    padding: 0;
+    width: 1200px;
+    height: 600px;
+}
+
+.container header {
+    margin: 0;
+    padding: 0;
+}
+
+.container .content {
+    background-color: var(--white);
+    width: 100%;
+    height: 100%;
+}
+
+.container .content > * {  /*Fikk ikke satt opp boksene korrekt så fant denne løsnningen med hjelp av element>element selectoren fra w3schools.com https://www.w3schools.com/cssref/sel_element_gt.php*/
+    margin: 0;
+    padding: 0;
+}
+
+
+
+
+.container header nav ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.container header nav ul li {
+    /*Aligning content center*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*Removing list style*/
+    text-decoration: none;
+    list-style: none;
+    /*Styling the boxes*/
+    width: 230px;
+    height: 80px;
+    background-color: var(--header-blue);
+    /*Styling content of boxes*/
+    color: var(--white);
+}

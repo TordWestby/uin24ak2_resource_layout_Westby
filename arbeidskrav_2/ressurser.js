@@ -93,4 +93,46 @@ const resources = [
             },
         ]
     },
-]
+];
+
+/*Henter ut overskriften til navbar*/ 
+document.getElementById("1").innerHTML = resources[0].category;
+document.getElementById("2").innerHTML = resources[1].category;
+document.getElementById("3").innerHTML = resources[2].category;
+document.getElementById("4").innerHTML = resources[3].category;
+document.getElementById("5").innerHTML = resources[4].category;
+
+//Sjekker at den finner arrayet!
+console.log(resources)
+
+
+//Koden er generert av BlackBox.ai, https://www.blackbox.ai/chat/expert-javascript, delen nedenfor er stort sett generert med hjelp av ai og inneholder mindre endringer.
+/*Chaten er linket her, fant ikke ut hvordan den skulle løses og fant ikke nok info om dette på nettet så måtte få hjelp av ai...
+(blackbox.ai, 2024)   https://www.blackbox.ai/share/c9d8b912-24e0-49de-ac8d-a5f0d6d73181
+*/
+const buttons = document.querySelectorAll('nav button');
+const resourceElements = document.querySelectorAll('.content');
+
+buttons.forEach((button, category) => {
+  button.dataset.category = category;
+  button.addEventListener('click', () => ShowAllInfoResources(button.dataset.category));
+});
+
+function ShowAllInfoResources(category) {
+  resourceElements.forEach(element => {
+    element.innerHTML = '';
+  });
+
+  const selectedResource = resources[category];
+  const resourceElement = resourceElements[0];
+  resourceElement.innerHTML = `
+    <h2>${selectedResource.category}</h2>
+    <p>${selectedResource.text}</p>
+    <ul></ul>
+    <ul>
+      ${selectedResource.sources.map(source => `
+        <li><a href="${source.url}" target="_blank">${source.title}</a></li>
+      `).join('')}
+    </ul>
+  `;
+}
